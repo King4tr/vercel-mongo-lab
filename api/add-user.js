@@ -3,7 +3,12 @@ const { MongoClient } = require('mongodb');
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).send("Only POST allowed");
 
-  const { name, email } = req.body;
+  let body = '';
+for await (const chunk of req) {
+  body += chunk;
+}
+const { name, email } = JSON.parse(body);
+
   const uri = process.env.MONGODB_URI;
 
   const client = new MongoClient(uri);
