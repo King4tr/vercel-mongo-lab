@@ -1,0 +1,7 @@
+{
+  "name": "vercel-mongo-lab",
+  "version": "1.0.0",
+  "dependencies": {
+    "mongodb": "^5.8.0"
+  }
+}
